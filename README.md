@@ -105,6 +105,11 @@ to display the context menu from Windows 10 and earlier. This can be corrected b
    - Double-click the `(Default)` value.
    - In the dialog that opens, ensure the `value` box is empty`.
    - Click "OK".
+6. Restart Windows Explorer (or reboot your computer)
+   - Open the Task Manager by pressing `Ctrl + Shift + Esc`.
+   - Open the **Details** tab on the left.
+   - Right-click on `explorer.exe`
+   - Choose **Restart**.
 
 ![context-menu.png](./context-menu.png)
 
