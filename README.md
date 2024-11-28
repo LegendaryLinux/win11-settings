@@ -35,7 +35,7 @@
 3. In the menu, choose **Installed Apps**.
 4. Locate Cortana in the list of apps and click the three dots to open the context menu.
 5. If available, choose **Uninstall**.
-   - If **Uninstall is not available, choose "Advanced Options".
+   - If **Uninstall** is not available, choose "Advanced Options".
    - Disable the **Run at log-in** option.
 
 ### Disable telemetry
@@ -44,10 +44,10 @@
    - Open the Run dialog by pressing `Win + R`.
    - Open the Group Policy Editor by typing `gpedit.msc` and press Enter.
 2. Navigate through the following options:
-   1. Computer Configuration
-   2. Administrative Templates
-   3. Windows Components
-   4. Data Collection and Preview Builds
+   - Computer Configuration
+   - Administrative Templates
+   - Windows Components
+   - Data Collection and Preview Builds
 3. Double-click **Allow Telemetry** and set it to **Disabled**.
 
 **For Windows 11 Home, or if the above does not work:**
