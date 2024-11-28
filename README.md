@@ -82,14 +82,23 @@
 3. Copy the contents of
    [this hosts file](https://raw.githubusercontent.com/hagezi/dns-blocklists/main/hosts/native.winoffice.txt) to the
    bottom of your `hosts` file. You do not need to copy lines beginning with a `#`.
-4. Save the file. Ensure the file is saved as `hosts`, without the `.txt` extension.
+4. Block QuickAssist by adding this line to the bottom of the hosts file:  
+   `0.0.0.0 remoteassistance.support.services.microsoft.com`.
+5. Save the file. Ensure the file is saved as `hosts`, without the `.txt` extension.
 
-**Note: Widows 11 will flag this change as a potential security vulnerability.**  
+**Note: Widows 11 will flag changes to the `hosts` file as a severe security vulnerability.**  
 The `hosts` file is used to redirect requests for specific domains to a predefined endpoint.
 Here, we are redirecting the requests to Microsoft's telemetry servers to `0.0.0.0`, which
 is a non-routable address. This effectively blocks the domains on your system.
 
 ![hosts-file.png](./hosts-file.png)
+
+### Uninstall QuickAssist
+1. Open Windows PowerShell in administrator mode:
+   - Search for `powershell` in the Start menu.
+   - Right-click it and choose `Run as administrator`.
+   - Run the following command:  
+   `Get-AppxPackage -Name MicrosoftCorporationII.QuickAssist | Remove-AppxPackage -AllUsers`
 
 ### Remove or disable unwanted apps
 1. Open the Windows Settings Panel by pressing `Win + U`.
@@ -118,11 +127,6 @@ to display the context menu from Windows 10 and earlier. This can be corrected b
    - Double-click the `(Default)` value.
    - In the dialog that opens, ensure the `value` box is empty`.
    - Click **OK**.
-6. Restart Windows Explorer (or reboot your computer)
-   - Open the Task Manager by pressing `Ctrl + Shift + Esc`.
-   - Open the **Details** tab on the left.
-   - Right-click on `explorer.exe`
-   - Choose **Restart**.
 
 ![context-menu.png](./context-menu.png)
 
@@ -133,4 +137,34 @@ to display the context menu from Windows 10 and earlier. This can be corrected b
 4. Choose **Taskbar Behaviors**.
 5. Use the settings pictured below:
 
-![taskbar.png](taskbar.png)
+![taskbar.png](./taskbar.png)
+
+### Disable trending searches and web search in the Start Menu
+1. Open the Windows Registry Editor:
+   - Open the Run dialog by pressing `Win + R`.
+   - Type `regedit` and press Enter.
+2. Navigate to `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search`.
+3. Right-click on the `Search` key and choose `New --> DWORD (32-Bit Value)`.
+4. Name the new value `BingSearchEnabled`.
+5. Double-click the newly created `BingSearchEnabled` value.
+6. Give the value a new hexadecimal value of `0`.
+
+![bing-search.png](./bing-search.png)
+
+### Disable Copilot
+1. Open the Windows Registry Editor:
+   - Open the Run dialog by pressing `Win + R`.
+   - Type `regedit` and press Enter.
+2. Navigate to `HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows`.
+3. Right-Click on the `Windows` key and choose `New --> Key`.
+4. Name the new key `WindowsCopilot`.
+5. Right-click on the new `WindowsCopilot` key and choose `New --> DWORD (32-Bit)`.
+6. Name the new value `TurnOffWindowsCopilot`.
+7. Double-click the newly created `TurnOffWindowsCopilot` value.
+8. Give the value a new hexadecimal value of `1`.
+
+### Restart Windows Explorer (or reboot your computer) to apply changes
+1. Open the Task Manager by pressing `Ctrl + Shift + Esc`.
+2. Open the **Details** tab on the left.
+3. Right-click on `explorer.exe`
+4. Choose **Restart**.
