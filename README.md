@@ -163,6 +163,8 @@ to display the context menu from Windows 10 and earlier. This can be corrected b
 7. Double-click the newly created `TurnOffWindowsCopilot` value.
 8. Give the value a new hexadecimal value of `1`.
 
+![copilot.png](./copilot.png)
+
 ### Restart Windows Explorer (or reboot your computer) to apply changes
 1. Open the Task Manager by pressing `Ctrl + Shift + Esc`.
 2. Open the **Details** tab on the left.
