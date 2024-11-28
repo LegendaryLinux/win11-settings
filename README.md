@@ -35,7 +35,7 @@
 3. In the menu, choose **Installed Apps**.
 4. Locate Cortana in the list of apps and click the three dots to open the context menu.
 5. If available, choose **Uninstall**.
-   - If **Uninstall** is not available, choose "Advanced Options".
+   - If **Uninstall** is not available, choose **Advanced Options**.
    - Disable the **Run at log-in** option.
 
 ### Disable telemetry
@@ -86,7 +86,7 @@
 
 ## UI Tweaks
 ### Always use the context menu in "Advanced" mode
-Windows 11 changed the default context menu to a simplified version, requiring users to click a "Show More" button
+Windows 11 changed the default context menu to a simplified version, requiring users to click a **Show More** button
 to display the context menu from Windows 10 and earlier. This can be corrected by modifying a registry key.
 1. Open the Windows Registry Editor:
    - Open the Run dialog by pressing `Win + R`.
@@ -104,7 +104,7 @@ to display the context menu from Windows 10 and earlier. This can be corrected b
    - Observe a new `(Default)` value on the right.
    - Double-click the `(Default)` value.
    - In the dialog that opens, ensure the `value` box is empty`.
-   - Click "OK".
+   - Click **OK**.
 6. Restart Windows Explorer (or reboot your computer)
    - Open the Task Manager by pressing `Ctrl + Shift + Esc`.
    - Open the **Details** tab on the left.
