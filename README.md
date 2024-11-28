@@ -38,7 +38,7 @@
    - If **Uninstall** is not available, choose **Advanced Options**.
    - Disable the **Run at log-in** option.
 
-### Disable telemetry
+### Disable telemetry via group policy
 **For Windows 11 Enterprise or Pro:**
 1. Open the Group Policy Editor:
    - Open the Run dialog by pressing `Win + R`.
@@ -62,19 +62,32 @@
 
 ![telemetry-registry.png](./telemetry-registry.png)
 
+### Disable telemetry via system services
+1. Open the Services panel
+   - Open the Run dialog by pressing `Win + R`.
+   - Type `services.msc` and press Enter.
+2. Find `Connected User Experiences and Telemetry` in the list.
+3. Right click it and open its properties panel.
+4. Click **Stop**.
+5. Set the **Startup Type** to **Disabled**.
+
+![telemetry-services.png](./telemetry-services.png)
+
 ### Block telemetry via the `hosts` file
 1. Open Notepad in Administrator mode:
    - Search for Notepad in the Start Menu
    - Right click it, and choose **Run as Administrator**.
 2. Open `C:\Windows\System32\drivers\etc\hosts`.
    - You will need to choose `All files (*.*)` in the file extensions menu.
-3. Paste the following code at the bottom of your `hosts` file:
-   ```
-   # Disable Win11 Telemetry
-   0.0.0.0 vortex.data.microsoft.com
-   0.0.0.0 settings-win.data.microsoft.com
-   ```
+3. Copy the contents of
+   [this hosts file](https://raw.githubusercontent.com/hagezi/dns-blocklists/main/hosts/native.winoffice.txt) to the
+   bottom of your `hosts` file. You do not need to copy lines beginning with a `#`.
 4. Save the file. Ensure the file is saved as `hosts`, without the `.txt` extension.
+
+**Note: Widows 11 will flag this change as a potential security vulnerability.**  
+The `hosts` file is used to redirect requests for specific domains to a predefined endpoint.
+Here, we are redirecting the requests to Microsoft's telemetry servers to `0.0.0.0`, which
+is a non-routable address. This effectively blocks the domains on your system.
 
 ![hosts-file.png](./hosts-file.png)
 
