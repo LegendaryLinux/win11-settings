@@ -106,6 +106,20 @@ is a non-routable address. This effectively blocks the domains on your system.
 3. Browse the displayed apps and remove unwanted entries.
    - Unless you use it, you should remove OneDrive.
 
+### Disable Copilot
+1. Open the Windows Registry Editor:
+   - Open the Run dialog by pressing `Win + R`.
+   - Type `regedit` and press Enter.
+2. Navigate to `HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows`.
+3. Right-Click on the `Windows` key and choose `New --> Key`.
+4. Name the new key `WindowsCopilot`.
+5. Right-click on the new `WindowsCopilot` key and choose `New --> DWORD (32-Bit)`.
+6. Name the new value `TurnOffWindowsCopilot`.
+7. Double-click the newly created `TurnOffWindowsCopilot` value.
+8. Give the value a new hexadecimal value of `1`.
+
+![copilot.png](./copilot.png)
+
 ## UI Tweaks
 ### Always use the context menu in "Advanced" mode
 Windows 11 changed the default context menu to a simplified version, requiring users to click a **Show More** button
@@ -150,20 +164,6 @@ to display the context menu from Windows 10 and earlier. This can be corrected b
 6. Give the value a new hexadecimal value of `0`.
 
 ![bing-search.png](./bing-search.png)
-
-### Disable Copilot
-1. Open the Windows Registry Editor:
-   - Open the Run dialog by pressing `Win + R`.
-   - Type `regedit` and press Enter.
-2. Navigate to `HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows`.
-3. Right-Click on the `Windows` key and choose `New --> Key`.
-4. Name the new key `WindowsCopilot`.
-5. Right-click on the new `WindowsCopilot` key and choose `New --> DWORD (32-Bit)`.
-6. Name the new value `TurnOffWindowsCopilot`.
-7. Double-click the newly created `TurnOffWindowsCopilot` value.
-8. Give the value a new hexadecimal value of `1`.
-
-![copilot.png](./copilot.png)
 
 ### Restart Windows Explorer (or reboot your computer) to apply changes
 1. Open the Task Manager by pressing `Ctrl + Shift + Esc`.
